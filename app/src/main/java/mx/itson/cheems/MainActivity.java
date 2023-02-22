@@ -80,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         } else if (n == 11) {
+            //Si el usuario da 11 tap a cartas sin perder entonces se considera ganador
             Vibrator vibrator = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
             vibrator.vibrate(VibrationEffect.createOneShot(300, VibrationEffect.DEFAULT_AMPLITUDE));
             Toast.makeText(this, "¡GANASTE!", Toast.LENGTH_LONG).show();
@@ -90,8 +91,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         getResources().getIdentifier("opcion" + i, "id", this.getPackageName())));
 
                 if (i == ubicacion) {
+                    //La carta que originalmente tenia al cheems llorando se convierte en cheems win
                     btnSeleccion.setBackgroundResource(R.drawable.cheems_win);
                 }else {
+                    //Se destapa la carta donde se dio el ultimo tap
                     btnSeleccion.setBackgroundResource(R.drawable.icon_cheems);
                 }
                 n=0;
